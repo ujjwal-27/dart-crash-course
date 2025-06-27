@@ -9,4 +9,8 @@ void main() {
   scores.removeAt(3);
 
   print(scores);
+
+  for (int i = 0; i < scores.length; i++) {
+    print(scores.elementAt(i));
+  }
 }
