@@ -22,4 +22,21 @@ class Pizza extends MenuItem {
   List<String> toppings;
 
   Pizza(this.toppings, super.title, super.price);
+
+  @override
+  String format() {
+    String formatToppings = "Contains:";
+
+    // concats strings on formatToppings
+    for (String topping in toppings) {
+      formatToppings = "$formatToppings $topping,";
+    }
+
+    // remove comma at the end
+    if (formatToppings.endsWith(',')) {
+      formatToppings = formatToppings.substring(0, formatToppings.length - 1);
+    }
+
+    return "$title --> $price \n$formatToppings";
+  }
 }
