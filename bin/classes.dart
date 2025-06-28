@@ -1,10 +1,24 @@
 void main() {
   Pizza pizza = Pizza(["bacon", "cheese"], "meat lovers", 9.99);
   MenuItem noodles = MenuItem("spaghetti", 10.25);
+  MenuItem roast = MenuItem("chicken", 10.25);
+  MenuItem kebab = MenuItem("mutton", 10.25);
 
-  print(pizza.toppings);
-  print(pizza.format());
-  print(noodles.format());
+  // print(pizza.toppings);
+  // print(pizza.format());
+
+  // print(noodles.format());
+
+  var foods = Collections<MenuItem>("Menu Items", [
+    pizza,
+    noodles,
+    roast,
+    kebab,
+  ]);
+
+  var random = foods.randomItem();
+
+  print(random);
 }
 
 class MenuItem {
@@ -15,6 +29,11 @@ class MenuItem {
 
   String format() {
     return "$title --> $price";
+  }
+
+  @override
+  String toString() {
+    return format();
   }
 }
 
@@ -38,5 +57,18 @@ class Pizza extends MenuItem {
     }
 
     return "$title --> $price \n$formatToppings";
+  }
+}
+
+class Collections<T> {
+  String name;
+  List<T> data;
+
+  Collections(this.name, this.data);
+
+  T randomItem() {
+    data.shuffle();
+
+    return data[0];
   }
 }
