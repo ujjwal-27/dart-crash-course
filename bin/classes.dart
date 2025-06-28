@@ -60,6 +60,9 @@ class Pizza extends MenuItem {
   }
 }
 
+/*
+ * Creating generic class using <T>
+ */
 class Collections<T> {
   String name;
   List<T> data;
