@@ -7,7 +7,7 @@ void main() async {
   print(post.title);
 }
 
-fetchPost() async {
+Future<Post> fetchPost() async {
   var url = Uri.https('jsonplaceholder.typicode.com', '/posts/1');
 
   final response = await http.get(
